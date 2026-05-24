@@ -177,7 +177,7 @@ jobs:
       - name: Select Xcode version
         run: |
           ls /Applications | grep Xcode
-          sudo xcode-select --switch /Applications/Xcode_26.app/Contents/Developer
+          sudo xcode-select --switch /Applications/Xcode_26.5.app/Contents/Developer
           xcodebuild -version
           xcrun --sdk iphoneos --show-sdk-version
 
