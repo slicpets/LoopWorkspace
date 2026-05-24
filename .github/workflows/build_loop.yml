@@ -175,7 +175,11 @@ jobs:
         (vars.SCHEDULED_SYNC != 'false' && needs.check_status.outputs.NEW_COMMITS == 'true' )
     steps:
       - name: Select Xcode version
-        run: "sudo xcode-select --switch /Applications/Xcode_26.2.app/Contents/Developer"
+        run: |
+          ls /Applications | grep Xcode
+          sudo xcode-select --switch /Applications/Xcode_26.app/Contents/Developer
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
 
       - name: Checkout Repo for building
         uses: actions/checkout@v5
